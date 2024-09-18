@@ -151,9 +151,8 @@
 
       input:focus:not(input[type="radio"]),
       textarea:focus {
-        border: 1.5px solid rgb(245, 136, 231);
-        box-shadow: 2px 2px 2px 1px rgb(245, 136, 231),
-          -2px -2px 2px 1px rgb(245, 136, 231);
+        border: 1.5px solid #adaaaa;
+        box-shadow: 2px 2px 2px 1px #adaaaa, -2px -2px 2px 1px #adaaaa;
         color: #156082;
       }
 
@@ -620,7 +619,7 @@
         cursor: pointer;
         width: fit-content;
         font-weight: 600;
-        z-index: 6;
+        z-index: 7;
       }
 
       .sc_button_block,
@@ -663,7 +662,7 @@
         border-image-source: url("https://cdn.shopify.com/s/files/1/0692/1620/7092/files/iStock-1156426253.jpg?v=1726571592");
         border-image-slice: 30 fill;
         border-image-repeat: round; */
-        background-image: url("https://cdn.shopify.com/s/files/1/0692/1620/7092/files/iStock-1554537703.jpg?v=1726607821");
+        background: #eee;
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center center;
@@ -732,7 +731,7 @@
         border-image-slice: 30 fill;
         border-image-repeat: round; */
         width: 28%;
-        background-image: url("https://cdn.shopify.com/s/files/1/0692/1620/7092/files/iStock-1554537703.jpg?v=1726607821");
+        background: #eee;
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center center;
@@ -1068,9 +1067,7 @@
         </div>
       </div>
       <div class="sc_button_block hidden">
-        <a href="javascript:void(0)" class="sc-preview_button"
-          >Reset</a
-        >
+        <a href="javascript:void(0)" class="sc-preview_button">Reset</a>
       </div>
       <div class="page-width">
         <form method="post" id="gc-purchase-form">
@@ -1724,34 +1721,70 @@ You sacrified to take care of us. We appreciate you.</textarea
                 //       ".gc_template_input_block input[type='radio']:checked + label img"
                 //     ).src;
                 //   });
-                document.querySelector(
-                  ".gc-purchase-form-img_card_main_block"
-                ).style.backgroundImage = `url(${
-                  document.querySelector(
-                    ".gc_template_input_block input[type='radio']:checked + label img"
-                  ).src
-                })`;
-                document.querySelector(
-                  ".pc_gc-purchase-form-img_conatiner"
-                ).style.backgroundImage = `url(${
-                  document.querySelector(
-                    ".gc_template_input_block input[type='radio']:checked + label img"
-                  ).src
-                })`;
-                document.querySelector(
-                  ".preview_text_frame_content_block"
-                ).style.backgroundImage = `url(${
-                  document.querySelector(
-                    ".gc_template_input_block input[type='radio']:checked + label img"
-                  ).src
-                })`;
-                document.querySelector(
-                  ".preview_frame_redeem_card_block"
-                ).style.backgroundImage = `url(${
-                  document.querySelector(
-                    ".gc_template_input_block input[type='radio']:checked + label img"
-                  ).src
-                })`;
+                // document.querySelector(
+                //   ".gc-purchase-form-img_card_main_block"
+                // ).style.backgroundImage = `url(${
+                //   document.querySelector(
+                //     ".gc_template_input_block input[type='radio']:checked + label img"
+                //   ).src
+                // })`;
+                document
+                  .querySelectorAll(".gc-purchase-form-img_card_main_block")
+                  .forEach((gcb) => {
+                    gcb.style.backgroundImage = `url(${
+                      document.querySelector(
+                        ".gc_template_input_block input[type='radio']:checked + label img"
+                      ).src
+                    })`;
+                  });
+                // document.querySelector(
+                //   ".pc_gc-purchase-form-img_conatiner"
+                // ).style.backgroundImage = `url(${
+                //   document.querySelector(
+                //     ".gc_template_input_block input[type='radio']:checked + label img"
+                //   ).src
+                // })`;
+                document
+                  .querySelectorAll(".pc_gc-purchase-form-img_conatiner")
+                  .forEach((gcb) => {
+                    gcb.style.backgroundImage = `url(${
+                      document.querySelector(
+                        ".gc_template_input_block input[type='radio']:checked + label img"
+                      ).src
+                    })`;
+                  });
+                // document.querySelector(
+                //   ".preview_text_frame_content_block"
+                // ).style.backgroundImage = `url(${
+                //   document.querySelector(
+                //     ".gc_template_input_block input[type='radio']:checked + label img"
+                //   ).src
+                // })`;
+                document
+                  .querySelectorAll(".preview_text_frame_content_block")
+                  .forEach((gcb) => {
+                    gcb.style.backgroundImage = `url(${
+                      document.querySelector(
+                        ".gc_template_input_block input[type='radio']:checked + label img"
+                      ).src
+                    })`;
+                  });
+                // document.querySelector(
+                //   ".preview_frame_redeem_card_block"
+                // ).style.backgroundImage = `url(${
+                //   document.querySelector(
+                //     ".gc_template_input_block input[type='radio']:checked + label img"
+                //   ).src
+                // })`;
+                document
+                  .querySelectorAll(".preview_frame_redeem_card_block")
+                  .forEach((gcb) => {
+                    gcb.style.backgroundImage = `url(${
+                      document.querySelector(
+                        ".gc_template_input_block input[type='radio']:checked + label img"
+                      ).src
+                    })`;
+                  });
               }
             });
           });
