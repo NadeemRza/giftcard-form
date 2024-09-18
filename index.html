@@ -178,6 +178,7 @@
       .preview_heading {
         position: relative;
         z-index: 6;
+        margin-top: 20px;
       }
 
       #insider_text {
@@ -298,7 +299,7 @@
         border-image-source: url("https://cdn.shopify.com/s/files/1/0692/1620/7092/files/iStock-1156426253.jpg?v=1726571592");
         border-image-slice: 30 fill;
         border-image-repeat: round; */
-        background-image: url("https://cdn.shopify.com/s/files/1/0692/1620/7092/files/iStock-1406511988.jpg?v=1726607822");
+        background-image: url("https://cdn.shopify.com/s/files/1/0692/1620/7092/files/iStock-1554537703.jpg?v=1726607821");
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center center;
@@ -324,7 +325,7 @@
         justify-content: center;
         align-items: center;
         padding: 0; */
-        background-image: url("https://cdn.shopify.com/s/files/1/0692/1620/7092/files/iStock-1406511988.jpg?v=1726607822");
+        background-image: url("https://cdn.shopify.com/s/files/1/0692/1620/7092/files/iStock-1554537703.jpg?v=1726607821");
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center center;
@@ -419,7 +420,8 @@
         font-family: "Simple Brush Script", sans-serif;
         text-shadow: 8px 8px 15px rgba(0, 0, 0, 0.5);
         box-shadow: 3px 5px 2px 2px rgba(0, 0, 0, 0.1);
-        background: rgba(255, 255, 255, 0.15);
+        background: rgba(255, 255, 255, 0.5);
+        min-height: 39px;
       }
 
       .pc_greeting_message {
@@ -640,7 +642,7 @@
         box-shadow: -6px 7px 5px 4px rgba(0, 0, 0, 0.15),
           6px 7px 5px 4px rgba(0, 0, 0, 0.15);
         margin: 10px;
-        background: rgba(255, 255, 255, 0.2);
+        background: rgba(255, 255, 255, 0.7);
         padding: 5px;
       }
 
@@ -661,7 +663,7 @@
         border-image-source: url("https://cdn.shopify.com/s/files/1/0692/1620/7092/files/iStock-1156426253.jpg?v=1726571592");
         border-image-slice: 30 fill;
         border-image-repeat: round; */
-        background-image: url("https://cdn.shopify.com/s/files/1/0692/1620/7092/files/iStock-1406511988.jpg?v=1726607822");
+        background-image: url("https://cdn.shopify.com/s/files/1/0692/1620/7092/files/iStock-1554537703.jpg?v=1726607821");
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center center;
@@ -706,7 +708,7 @@
         box-shadow: -6px 7px 5px 4px rgba(0, 0, 0, 0.15),
           6px 7px 5px 4px rgba(0, 0, 0, 0.15);
         margin: 20px 10px 10px;
-        background: rgba(255, 255, 255, 0.2);
+        background: rgba(255, 255, 255, 0.7);
         padding: 5px;
         width: 100%;
       }
@@ -730,7 +732,7 @@
         border-image-slice: 30 fill;
         border-image-repeat: round; */
         width: 28%;
-        background-image: url("https://cdn.shopify.com/s/files/1/0692/1620/7092/files/iStock-1406511988.jpg?v=1726607822");
+        background-image: url("https://cdn.shopify.com/s/files/1/0692/1620/7092/files/iStock-1554537703.jpg?v=1726607821");
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center center;
@@ -827,7 +829,8 @@
         }
 
         .camera_preview_block {
-          height: 112px;
+          height: 100%;
+          width: 50%;
         }
 
         .camera_preview_block video {
@@ -839,7 +842,8 @@
         }
 
         .camera_canvas_content_block {
-          height: 112px;
+          height: 100%;
+          width: 50%;
         }
 
         .preview_cards_block {
@@ -1065,7 +1069,7 @@
       </div>
       <div class="sc_button_block hidden">
         <a href="javascript:void(0)" class="sc-preview_button"
-          >Save & Confirm</a
+          >Reset</a
         >
       </div>
       <div class="page-width">
@@ -1531,12 +1535,18 @@ You sacrified to take care of us. We appreciate you.</textarea
         let camPrev = document.getElementById("camera_preview");
         let camCanvas = document.getElementById("camera_canvas");
 
-        document.querySelector(".greeting_message").innerText =
-          document.getElementById("cover_greeting").placeholder;
-        document.querySelector(".pc_greeting_message").innerText =
-          document.getElementById("cover_greeting").placeholder;
+        // document.querySelector(".greeting_message").innerText =
+        //   document.getElementById("cover_greeting").placeholder;
+        // document.querySelector(".pc_greeting_message").innerText =
+        //   document.getElementById("cover_greeting").placeholder;
+        // document.querySelectorAll(".pc_greeting_message").forEach((gm) => {
+        //   gm.innerText = document.getElementById("cover_greeting").placeholder;
+        // });
+
+        document.querySelector(".greeting_message").innerText = "";
+        document.querySelector(".pc_greeting_message").innerText = "";
         document.querySelectorAll(".pc_greeting_message").forEach((gm) => {
-          gm.innerText = document.getElementById("cover_greeting").placeholder;
+          gm.innerText = "";
         });
 
         document.querySelector(".preview_text_frame_dear_text_span").innerText =
@@ -1601,8 +1611,6 @@ You sacrified to take care of us. We appreciate you.</textarea
               mes;
           }, 300)
         );
-
-        addRadioListener();
 
         document.querySelectorAll(".img_rat_radio").forEach((irpr) => {
           irpr.addEventListener("change", () => {
@@ -1694,61 +1702,61 @@ You sacrified to take care of us. We appreciate you.</textarea
           }
         });
 
-        function addRadioListener() {
-          document.querySelectorAll(".template_radio").forEach((tr) => {
-            tr.addEventListener("change", () => {
-              document.querySelectorAll(".template_radio").forEach((tempr) => {
-                if (tempr.checked) {
-                  // document.querySelector(
-                  //   ".gc-purchase-form-img_card_main img"
-                  // ).src = document.querySelector(
-                  //   ".gc_template_input_block input[type='radio']:checked + label img"
-                  // ).src;
-                  // document.querySelector(
-                  //   ".pc_gc-purchase-form-img_card_main img"
-                  // ).src = document.querySelector(
-                  //   ".gc_template_input_block input[type='radio']:checked + label img"
-                  // ).src;
-                  // document
-                  //   .querySelectorAll(".pc_gc-purchase-form-img_card_main img")
-                  //   .forEach((gi) => {
-                  //     gi.src = document.querySelector(
-                  //       ".gc_template_input_block input[type='radio']:checked + label img"
-                  //     ).src;
-                  //   });
+        // function addRadioListener() {
+        document.querySelectorAll(".template_radio").forEach((tr) => {
+          tr.addEventListener("change", () => {
+            document.querySelectorAll(".template_radio").forEach((tempr) => {
+              if (tempr.checked) {
+                // document.querySelector(
+                //   ".gc-purchase-form-img_card_main img"
+                // ).src = document.querySelector(
+                //   ".gc_template_input_block input[type='radio']:checked + label img"
+                // ).src;
+                // document.querySelector(
+                //   ".pc_gc-purchase-form-img_card_main img"
+                // ).src = document.querySelector(
+                //   ".gc_template_input_block input[type='radio']:checked + label img"
+                // ).src;
+                // document
+                //   .querySelectorAll(".pc_gc-purchase-form-img_card_main img")
+                //   .forEach((gi) => {
+                //     gi.src = document.querySelector(
+                //       ".gc_template_input_block input[type='radio']:checked + label img"
+                //     ).src;
+                //   });
+                document.querySelector(
+                  ".gc-purchase-form-img_card_main_block"
+                ).style.backgroundImage = `url(${
                   document.querySelector(
-                    ".gc-purchase-form-img_card_main_block"
-                  ).style.backgroundImage = `url(${
-                    document.querySelector(
-                      ".gc_template_input_block input[type='radio']:checked + label img"
-                    ).src
-                  })`;
+                    ".gc_template_input_block input[type='radio']:checked + label img"
+                  ).src
+                })`;
+                document.querySelector(
+                  ".pc_gc-purchase-form-img_conatiner"
+                ).style.backgroundImage = `url(${
                   document.querySelector(
-                    ".pc_gc-purchase-form-img_conatiner"
-                  ).style.backgroundImage = `url(${
-                    document.querySelector(
-                      ".gc_template_input_block input[type='radio']:checked + label img"
-                    ).src
-                  })`;
+                    ".gc_template_input_block input[type='radio']:checked + label img"
+                  ).src
+                })`;
+                document.querySelector(
+                  ".preview_text_frame_content_block"
+                ).style.backgroundImage = `url(${
                   document.querySelector(
-                    ".preview_text_frame_content_block"
-                  ).style.backgroundImage = `url(${
-                    document.querySelector(
-                      ".gc_template_input_block input[type='radio']:checked + label img"
-                    ).src
-                  })`;
+                    ".gc_template_input_block input[type='radio']:checked + label img"
+                  ).src
+                })`;
+                document.querySelector(
+                  ".preview_frame_redeem_card_block"
+                ).style.backgroundImage = `url(${
                   document.querySelector(
-                    ".preview_frame_redeem_card_block"
-                  ).style.backgroundImage = `url(${
-                    document.querySelector(
-                      ".gc_template_input_block input[type='radio']:checked + label img"
-                    ).src
-                  })`;
-                }
-              });
+                    ".gc_template_input_block input[type='radio']:checked + label img"
+                  ).src
+                })`;
+              }
             });
           });
-        }
+        });
+        // }
 
         document.querySelectorAll(".price_radio").forEach((pr) => {
           pr.addEventListener("change", () => {
@@ -1770,21 +1778,33 @@ You sacrified to take care of us. We appreciate you.</textarea
           });
         });
 
-        document.querySelectorAll(".price_radio").forEach((pr) => {
-          if (pr.checked) {
-            document.querySelector(
-              ".gc-purchase-form-img_card_main_text"
-            ).innerText = "$" + pr.value;
-            document.querySelector(
-              ".gc-purchase-form-img_card_main_text"
-            ).innerText = "$" + pr.value;
-            document
-              .querySelectorAll(".pc_gc-purchase-form-img_card_main_text")
-              .forEach((pt) => {
-                pt.innerText = "$" + pr.value;
-              });
-          }
-        });
+        // document.querySelectorAll(".price_radio").forEach((pr) => {
+        //   if (pr.checked) {
+        //     document.querySelector(
+        //       ".gc-purchase-form-img_card_main_text"
+        //     ).innerText = "$" + pr.value;
+        //     document.querySelector(
+        //       ".gc-purchase-form-img_card_main_text"
+        //     ).innerText = "$" + pr.value;
+        //     document
+        //       .querySelectorAll(".pc_gc-purchase-form-img_card_main_text")
+        //       .forEach((pt) => {
+        //         pt.innerText = "$" + pr.value;
+        //       });
+        //   }
+        // });
+
+        document.querySelector(
+          ".gc-purchase-form-img_card_main_text"
+        ).innerText = "$";
+        document.querySelector(
+          ".gc-purchase-form-img_card_main_text"
+        ).innerText = "$";
+        document
+          .querySelectorAll(".pc_gc-purchase-form-img_card_main_text")
+          .forEach((pt) => {
+            pt.innerText = "$";
+          });
 
         function debounce(func, delay) {
           let debounceTimer;
@@ -1809,74 +1829,88 @@ You sacrified to take care of us. We appreciate you.</textarea
           }, 300)
         );
 
-        addRadioListener();
+        document.querySelector(
+          ".gc-purchase-form-img_card_main_block"
+        ).style.background = "#eee";
+        document.querySelector(
+          ".pc_gc-purchase-form-img_conatiner"
+        ).style.background = "#eee";
+        document.querySelector(
+          ".preview_text_frame_content_block"
+        ).style.background = "#eee";
+        document.querySelector(
+          ".preview_frame_redeem_card_block"
+        ).style.background = "#eee";
 
-        document.querySelectorAll(".template_radio").forEach((tempr) => {
-          if (tempr.checked) {
-            // document.querySelector(".gc-purchase-form-img_card_main img").src =
-            //   document.querySelector(
-            //     ".gc_template_input_block input[type='radio']:checked + label img"
-            //   ).src;
-            // document.querySelector(
-            //   ".pc_gc-purchase-form-img_card_main img"
-            // ).src = document.querySelector(
-            //   ".gc_template_input_block input[type='radio']:checked + label img"
-            // ).src;
-            // document
-            //   .querySelectorAll(".pc_gc-purchase-form-img_card_main img")
-            //   .forEach((gi) => {
-            //     gi.src = document.querySelector(
-            //       ".gc_template_input_block input[type='radio']:checked + label img"
-            //     ).src;
-            //   });
-            document.querySelector(
-              ".gc-purchase-form-img_card_main_block"
-            ).style.backgroundImage = `url(${
-              document.querySelector(
-                ".gc_template_input_block input[type='radio']:checked + label img"
-              ).src
-            })`;
-            document.querySelector(
-              ".pc_gc-purchase-form-img_conatiner"
-            ).style.backgroundImage = `url(${
-              document.querySelector(
-                ".gc_template_input_block input[type='radio']:checked + label img"
-              ).src
-            })`;
-            document.querySelector(
-              ".preview_text_frame_content_block"
-            ).style.backgroundImage = `url(${
-              document.querySelector(
-                ".gc_template_input_block input[type='radio']:checked + label img"
-              ).src
-            })`;
-            document.querySelector(
-              ".preview_frame_redeem_card_block"
-            ).style.backgroundImage = `url(${
-              document.querySelector(
-                ".gc_template_input_block input[type='radio']:checked + label img"
-              ).src
-            })`;
-          }
-        });
+        // addRadioListener();
+
+        // document.querySelectorAll(".template_radio").forEach((tempr) => {
+        // if (tempr.checked) {
+        // document.querySelector(".gc-purchase-form-img_card_main img").src =
+        //   document.querySelector(
+        //     ".gc_template_input_block input[type='radio']:checked + label img"
+        //   ).src;
+        // document.querySelector(
+        //   ".pc_gc-purchase-form-img_card_main img"
+        // ).src = document.querySelector(
+        //   ".gc_template_input_block input[type='radio']:checked + label img"
+        // ).src;
+        // document
+        //   .querySelectorAll(".pc_gc-purchase-form-img_card_main img")
+        //   .forEach((gi) => {
+        //     gi.src = document.querySelector(
+        //       ".gc_template_input_block input[type='radio']:checked + label img"
+        //     ).src;
+        //   });
+        //     document.querySelector(
+        //       ".gc-purchase-form-img_card_main_block"
+        //     ).style.backgroundImage = `url(${
+        //       document.querySelector(
+        //         ".gc_template_input_block input[type='radio']:checked + label img"
+        //       ).src
+        //     })`;
+        //     document.querySelector(
+        //       ".pc_gc-purchase-form-img_conatiner"
+        //     ).style.backgroundImage = `url(${
+        //       document.querySelector(
+        //         ".gc_template_input_block input[type='radio']:checked + label img"
+        //       ).src
+        //     })`;
+        //     document.querySelector(
+        //       ".preview_text_frame_content_block"
+        //     ).style.backgroundImage = `url(${
+        //       document.querySelector(
+        //         ".gc_template_input_block input[type='radio']:checked + label img"
+        //       ).src
+        //     })`;
+        //     document.querySelector(
+        //       ".preview_frame_redeem_card_block"
+        //     ).style.backgroundImage = `url(${
+        //       document.querySelector(
+        //         ".gc_template_input_block input[type='radio']:checked + label img"
+        //       ).src
+        //     })`;
+        //   }
+        // });
 
         document
           .querySelector(".sc-preview_button")
           .addEventListener("click", () => {
-            document
-              .querySelector(".sc-preview_button")
-              .classList.add("hidden");
-            document
-              .querySelector(".final_step_blocks")
-              .classList.remove("hidden");
-            document.querySelector(".final_step_blocks").classList.add("show");
-            document
-              .querySelector(".preview_cards_block")
-              .classList.add("hide");
-            document
-              .querySelector(".preview_frame_cross")
-              .classList.add("hidden");
-            document.querySelector(".preview_heading").classList.add("hidden");
+            // document
+            //   .querySelector(".sc-preview_button")
+            //   .classList.add("hidden");
+            // document
+            //   .querySelector(".final_step_blocks")
+            //   .classList.remove("hidden");
+            // document.querySelector(".final_step_blocks").classList.add("show");
+            // document
+            //   .querySelector(".preview_cards_block")
+            //   .classList.add("hide");
+            // document
+            //   .querySelector(".preview_frame_cross")
+            //   .classList.add("hidden");
+            // document.querySelector(".preview_heading").classList.add("hidden");
+            location.reload();
           });
 
         document
