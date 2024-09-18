@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vid to GIF</title>
+    <script src="https://cdn.jsdelivr.net/npm/lzw-stream@1.0.0/index.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/neuquant-js@0.2.1/helpers.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gifencoder@2.0.1/index.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/base64-js@1.5.1/base64js.min.js"></script>
+  </head>
+  <body>
+    <canvas id="bitmap"></canvas>
+    <script>
+      var canvas = document.getElementById("bitmap");
+      var context = canvas.getContext("2d");
+      context.fillStyle = "rgb(255,255,255)";
+      context.fillRect(0, 0, canvas.width, canvas.height); //GIF can't do transparent so do white
+
+      context.fillStyle = "rgb(200,0,0)";
+      context.fillRect(10, 10, 75, 50);
+      var encoder = new GIFEncoder();
+      encoder.setRepeat(0); //0  -> loop forever
+      //1+ -> loop n times then stop
+      encoder.setDelay(500); //go to next frame every n milliseconds
+      encoder.start();
+      encoder.addFrame(context);
+      encoder.finish();
+      var binary_gif = encoder.stream().getData(); //notice this is different from the as3gif package!
+      var data_url = "data:image/gif;base64," + encode64(binary_gif);
+    </script>
+  </body>
+</html>
