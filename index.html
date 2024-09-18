@@ -169,8 +169,10 @@
         flex-wrap: wrap;
       }
 
-      .steps_checkbox:disabled, .steps_checkbox{
+      .steps_checkbox{
         accent-color: green;
+        cursor: not-allowed; 
+        pointer-events: none;
       }
 
       .main_heading,
@@ -1248,11 +1250,11 @@
                   <h4>Steps to grab your card</h4>
                 </div>
                 <div class="steps_checkboxes">
-                  <div><input type="checkbox" class="steps_checkbox template_checkbox" disabled /><span>Select Template</span></div>
-                  <div><input type="checkbox" class="steps_checkbox picture_checkbox" disabled /><span>Take Picture</span></div>
-                  <div><input type="checkbox" class="steps_checkbox price_checkbox" disabled /><span>Enter Amount</span></div>
-                  <div><input type="checkbox" class="steps_checkbox content_checkbox" disabled /><span>Enter Your content</span></div>
-                  <div><input type="checkbox" class="steps_checkbox preview_checkbox" disabled /><span>Preview Card</span></div>
+                  <div><input type="checkbox" class="steps_checkbox template_checkbox" /><span>Select Template</span></div>
+                  <div><input type="checkbox" class="steps_checkbox picture_checkbox" /><span>Take Picture</span></div>
+                  <div><input type="checkbox" class="steps_checkbox price_checkbox" /><span>Enter Amount</span></div>
+                  <div><input type="checkbox" class="steps_checkbox content_checkbox" /><span>Enter Your content</span></div>
+                  <div><input type="checkbox" class="steps_checkbox preview_checkbox" /><span>Preview Card</span></div>
                 </div>
               </div>
               <div class="gc-purchase-form-content_templates">
