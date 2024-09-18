@@ -81,6 +81,7 @@
         document
           .querySelector(".gc-purchase-form-preview_button")
           .addEventListener("click", () => {
+            document.querySelector(".preview_checkbox").checked = true;
             document.querySelector(".overlay").classList.remove("hidden");
             document.querySelector(".overlay").classList.add("show");
             document
@@ -165,6 +166,11 @@
         align-items: center;
         gap: 20px;
         margin-bottom: 20px;
+        flex-wrap: wrap;
+      }
+
+      .steps_checkbox:disabled, .steps_checkbox{
+        accent-color: green;
       }
 
       .main_heading,
@@ -1242,10 +1248,11 @@
                   <h4>Steps to grab your card</h4>
                 </div>
                 <div class="steps_checkboxes">
-                  <div><input type="checkbox" /><span>Select Template</span></div>
-                  <div><input type="checkbox" /><span>Take Picture</span></div>
-                  <div><input type="checkbox" /><span>Enter Your content</span></div>
-                  <div><input type="checkbox" /><span>Preview Card</span></div>
+                  <div><input type="checkbox" class="steps_checkbox template_checkbox" disabled /><span>Select Template</span></div>
+                  <div><input type="checkbox" class="steps_checkbox picture_checkbox" disabled /><span>Take Picture</span></div>
+                  <div><input type="checkbox" class="steps_checkbox price_checkbox" disabled /><span>Enter Amount</span></div>
+                  <div><input type="checkbox" class="steps_checkbox content_checkbox" disabled /><span>Enter Your content</span></div>
+                  <div><input type="checkbox" class="steps_checkbox preview_checkbox" disabled /><span>Preview Card</span></div>
                 </div>
               </div>
               <div class="gc-purchase-form-content_templates">
@@ -1579,6 +1586,7 @@ You sacrified to take care of us. We appreciate you.</textarea
         document.getElementById("cover_greeting").addEventListener(
           "input",
           debounce((e) => {
+            document.querySelector(".content_checkbox").checked = true;
             let mes = e.target.value;
             document.querySelector(".greeting_message").innerText = mes;
             document.querySelector(".pc_greeting_message").innerText = mes;
@@ -1591,6 +1599,7 @@ You sacrified to take care of us. We appreciate you.</textarea
         document.getElementById("insider_detail").addEventListener(
           "input",
           debounce((e) => {
+            document.querySelector(".content_checkbox").checked = true;
             let mes = e.target.value;
             document.querySelector(
               ".preview_text_frame_dear_text_span"
@@ -1601,6 +1610,7 @@ You sacrified to take care of us. We appreciate you.</textarea
         document.getElementById("insider_text").addEventListener(
           "input",
           debounce((e) => {
+            document.querySelector(".content_checkbox").checked = true;
             let mes = e.target.value;
             document.querySelector(
               ".preview_text_frame_insider_text"
@@ -1611,6 +1621,7 @@ You sacrified to take care of us. We appreciate you.</textarea
         document.getElementById("sign_off_text_input").addEventListener(
           "input",
           debounce((e) => {
+            document.querySelector(".content_checkbox").checked = true;
             let mes = e.target.value;
             document.querySelector(
               ".preview_text_frame_sign_off_text"
@@ -1621,6 +1632,7 @@ You sacrified to take care of us. We appreciate you.</textarea
         document.getElementById("from_text_input").addEventListener(
           "input",
           debounce((e) => {
+            document.querySelector(".content_checkbox").checked = true;
             let mes = e.target.value;
             document.querySelector(".preview_text_from_text_input").innerText =
               mes;
@@ -1720,6 +1732,7 @@ You sacrified to take care of us. We appreciate you.</textarea
         // function addRadioListener() {
         document.querySelectorAll(".template_radio").forEach((tr) => {
           tr.addEventListener("change", () => {
+            document.querySelector(".template_checkbox").checked = true;
             document.querySelectorAll(".template_radio").forEach((tempr) => {
               if (tempr.checked) {
                 // document.querySelector(
@@ -1811,6 +1824,7 @@ You sacrified to take care of us. We appreciate you.</textarea
 
         document.querySelectorAll(".price_radio").forEach((pr) => {
           pr.addEventListener("change", () => {
+            document.querySelector(".price_checkbox").checked = true;
             document.querySelectorAll(".price_radio").forEach((prir) => {
               if (prir.checked) {
                 document.querySelector(
@@ -1991,6 +2005,7 @@ You sacrified to take care of us. We appreciate you.</textarea
         document
           .querySelector(".camera_icon svg")
           .addEventListener("click", () => {
+            document.querySelector(".picture_checkbox").checked = true;
             mediaDevices
               .getUserMedia({
                 video: true,
