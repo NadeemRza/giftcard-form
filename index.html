@@ -149,7 +149,7 @@
         border: 1.5px solid #000;
       }
 
-      input:focus:not(input[type="radio"]),
+      input:focus:not(input[type="radio"], input[type="checkbox"]),
       textarea:focus {
         border: 1.5px solid #adaaaa;
         box-shadow: 2px 2px 2px 1px #adaaaa, -2px -2px 2px 1px #adaaaa;
@@ -158,6 +158,13 @@
 
       img[src=""] {
         display: none;
+      }
+
+      .steps_checkboxes{
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        margin-bottom: 20px;
       }
 
       .main_heading,
@@ -1230,6 +1237,17 @@
             </div>
 
             <div class="gc-purchase-form-content_conatiner">
+              <div class="gc-purchase-form-steps-container">
+                <div>
+                  <h4>Steps to grab your card</h4>
+                </div>
+                <div class="steps_checkboxes">
+                  <div><input type="checkbox" /><span>Select Template</span></div>
+                  <div><input type="checkbox" /><span>Take Picture</span></div>
+                  <div><input type="checkbox" /><span>Enter Your content</span></div>
+                  <div><input type="checkbox" /><span>Preview Card</span></div>
+                </div>
+              </div>
               <div class="gc-purchase-form-content_templates">
                 <div class="gc_template_input_block">
                   <input
