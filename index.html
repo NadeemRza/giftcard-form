@@ -15,6 +15,7 @@
       src="//code.jquery.com/jquery-migrate-1.2.1.min.js"
     ></script>
     <script type="text/javascript" src="./slick.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/heic2any/dist/heic2any.min.js"></script>
     <script>
       $(document).ready(function () {
         function initializeSlick() {
@@ -151,7 +152,8 @@
       input:focus,
       textarea:focus {
         border: 1.5px solid rgb(245, 136, 231);
-        box-shadow: 2px 2px 2px 1px rgb(245, 136, 231), -2px -2px 2px 1px rgb(245, 136, 231);
+        box-shadow: 2px 2px 2px 1px rgb(245, 136, 231),
+          -2px -2px 2px 1px rgb(245, 136, 231);
         color: #156082;
       }
 
@@ -206,7 +208,8 @@
         padding: 5px 80px;
       }
 
-      .gc-purchase-form-preview_button:hover, .sc-preview_button:hover{
+      .gc-purchase-form-preview_button:hover,
+      .sc-preview_button:hover {
         background: rgba(21, 96, 130, 0.5);
       }
 
@@ -1955,6 +1958,21 @@ You sacrified to take care of us. We appreciate you.</textarea
           .querySelector(".file_input")
           .addEventListener("change", function (event) {
             let file = event.target.files[0];
+            if (file && file.type === "image/heic") {
+              heic2any({
+                blob: file,
+                toType: "image/jpeg",
+              })
+                .then((convertedBlob) => {
+                  let imgSrc = URL.createObjectURL(convertedBlob);
+                  document.querySelector(
+                    ".pc_gc-purchase-form-img_card_main img"
+                  ).src = imgSrc;
+                })
+                .catch((error) =>
+                  console.log("Error converting HEIC file:", error)
+                );
+            }
             if (file && file.type.startsWith("image/")) {
               let reader = new FileReader();
 
