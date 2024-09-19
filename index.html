@@ -2185,8 +2185,7 @@ You sacrified to take care of us. We appreciate you.</textarea
           navigator.mediaDevices
             .getUserMedia(constraints)
             .then((stream) => {
-              const camPrev = document.querySelector("#camPrev");
-              camPrev.srcObject = stream; // Set video stream source
+              camPrev.srcObject = stream;
               camPrev.addEventListener("loadedmetadata", () => {
                 camPrev.play();
               });
