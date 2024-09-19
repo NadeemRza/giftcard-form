@@ -2164,51 +2164,51 @@ You sacrified to take care of us. We appreciate you.</textarea
             }
           });
 
-        let useBackCamera = false;
-        document
-          .querySelector(".change_camera")
-          .addEventListener("click", () => {
-            useBackCamera = !useBackCamera;
-            startCamera();
-          });
+        // let useBackCamera = false;
+        // document
+        //   .querySelector(".change_camera")
+        //   .addEventListener("click", () => {
+        //     useBackCamera = !useBackCamera;
+        //     startCamera();
+        //   });
 
-        function startCamera() {
-          const facingMode = useBackCamera ? "environment" : "user"; // Switch between back and front
+        // function startCamera() {
+        //   const facingMode = useBackCamera ? "environment" : "user";
 
-          const constraints = {
-            video: {
-              facingMode: { ideal: facingMode },
-            },
-            audio: false,
-          };
+        //   const constraints = {
+        //     video: {
+        //       facingMode: { ideal: facingMode },
+        //     },
+        //     audio: false,
+        //   };
 
-          navigator.mediaDevices
-            .getUserMedia(constraints)
-            .then((stream) => {
-              camPrev.srcObject = stream;
-              camPrev.addEventListener("loadedmetadata", () => {
-                camPrev.play();
-              });
-            })
-            .catch((err) => {
-              console.error(err.message);
-              alert(err.message);
-            });
+        //   navigator.mediaDevices
+        //     .getUserMedia(constraints)
+        //     .then((stream) => {
+        //       camPrev.srcObject = stream;
+        //       camPrev.addEventListener("loadedmetadata", () => {
+        //         camPrev.play();
+        //       });
+        //     })
+        //     .catch((err) => {
+        //       console.error(err.message);
+        //       alert(err.message);
+        //     });
 
-          document.querySelector(".overlay").classList.remove("hidden");
-          document.querySelector(".overlay").classList.add("show");
-          document
-            .querySelector(".camera_canvas_block")
-            .classList.remove("hidden");
-          window.scrollTo({ top: 0, behavior: "smooth" });
-        }
+        //   document.querySelector(".overlay").classList.remove("hidden");
+        //   document.querySelector(".overlay").classList.add("show");
+        //   document
+        //     .querySelector(".camera_canvas_block")
+        //     .classList.remove("hidden");
+        //   window.scrollTo({ top: 0, behavior: "smooth" });
+        // }
 
-        document
-          .querySelector(".camera_icon svg")
-          .addEventListener("click", () => {
-            document.querySelector(".picture_checkbox").checked = true; // Check the picture checkbox
-            startCamera(); // Start the camera based on current mode (initially front camera)
-          });
+        // document
+        //   .querySelector(".camera_icon svg")
+        //   .addEventListener("click", () => {
+        //     document.querySelector(".picture_checkbox").checked = true;
+        //     startCamera();
+        //   });
 
         //   let useBackCamera = false;
         // document
@@ -2249,51 +2249,51 @@ You sacrified to take care of us. We appreciate you.</textarea
         //   window.scrollTo({ top: 0, behavior: "smooth" });
         // }
 
-        // document
-        //   .querySelector(".camera_icon svg")
-        //   .addEventListener("click", () => {
-        //     document.querySelector(".picture_checkbox").checked = true;
-        // const constraints = {
-        //   video: {
-        //     facingMode: { ideal: "environment" },
-        //   },
-        //   audio: false,
-        // };
-        // mediaDevices
-        //   .getUserMedia({
-        //     video: true,
-        //     audio: false,
-        //   })
-        //   .then((stream) => {
-        //     camPrev.srcObject = stream;
-        //     camPrev.addEventListener("loadedmetadata", () => {
-        //       camPrev.play();
-        //     });
-        //   })
-        //   .catch((err) => {
-        //     console.log(err.message);
-        //     alert(err.message);
-        //   });
-        // mediaDevices
-        //   .getUserMedia(constraints)
-        //   .then((stream) => {
-        //     camPrev.srcObject = stream;
-        //     camPrev.addEventListener("loadedmetadata", () => {
-        //       camPrev.play();
-        //     });
-        //   })
-        //   .catch((err) => {
-        //     console.log(err.message);
-        //     alert(err.message);
-        //   });
-        // document.querySelector(".overlay").classList.remove("hidden");
-        // document.querySelector(".overlay").classList.add("show");
-        // document
-        //   .querySelector(".camera_canvas_block")
-        //   .classList.remove("hidden");
-        // window.scrollTo({ top: 0, behavior: "smooth" });
-        //   startCamera();
-        // });
+        document
+          .querySelector(".camera_icon svg")
+          .addEventListener("click", () => {
+            document.querySelector(".picture_checkbox").checked = true;
+            const constraints = {
+              video: {
+                facingMode: { ideal: "environment" },
+              },
+              audio: false,
+            };
+            mediaDevices
+              .getUserMedia({
+                video: true,
+                audio: false,
+              })
+              .then((stream) => {
+                camPrev.srcObject = stream;
+                camPrev.addEventListener("loadedmetadata", () => {
+                  camPrev.play();
+                });
+              })
+              .catch((err) => {
+                console.log(err.message);
+                alert(err.message);
+              });
+            mediaDevices
+              .getUserMedia(constraints)
+              .then((stream) => {
+                camPrev.srcObject = stream;
+                camPrev.addEventListener("loadedmetadata", () => {
+                  camPrev.play();
+                });
+              })
+              .catch((err) => {
+                console.log(err.message);
+                alert(err.message);
+              });
+            document.querySelector(".overlay").classList.remove("hidden");
+            document.querySelector(".overlay").classList.add("show");
+            document
+              .querySelector(".camera_canvas_block")
+              .classList.remove("hidden");
+            window.scrollTo({ top: 0, behavior: "smooth" });
+            startCamera();
+          });
 
         document
           .querySelector(".video_icon svg")
