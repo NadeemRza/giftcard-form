@@ -1003,6 +1003,7 @@
         .preview_text_frame_content_block,
         .preview_frame_redeem_card_block {
           display: flex !important;
+          justify-content: center;
         }
 
         .preview_cards_block .insta_prev_button {
@@ -1052,12 +1053,16 @@
           width: 100%;
         }
 
-        .capture_button_block {
+        /* .capture_button_block {
           gap: 30px;
-        }
+        } */
 
-        .change_camera {
+        /* .change_camera {
           display: flex;
+        } */
+
+        .gc-purchase-form-img_card_main img.square, .pc_gc-purchase-form-img_card_main img.square{
+          object-fit: cover;
         }
       }
     </style>
@@ -1080,7 +1085,7 @@
         </div>
         <div class="capture_button_block">
           <button id="capture_button">Capture Image</button>
-          <button class="change_camera">Change Side</button>
+          <button class="change_camera hidden">Change Side</button>
         </div>
       </div>
       <div class="video_canvas_block"></div>
