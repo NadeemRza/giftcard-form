@@ -2258,12 +2258,12 @@ You sacrified to take care of us. We appreciate you.</textarea
           .querySelector(".camera_icon svg")
           .addEventListener("click", () => {
             document.querySelector(".picture_checkbox").checked = true;
-            const constraints = {
-              video: {
-                facingMode: { ideal: "environment" },
-              },
-              audio: false,
-            };
+            // const constraints = {
+            //   video: {
+            //     facingMode: { ideal: "environment" },
+            //   },
+            //   audio: false,
+            // };
             mediaDevices
               .getUserMedia({
                 video: true,
@@ -2279,25 +2279,25 @@ You sacrified to take care of us. We appreciate you.</textarea
                 console.log(err.message);
                 alert(err.message);
               });
-            mediaDevices
-              .getUserMedia(constraints)
-              .then((stream) => {
-                camPrev.srcObject = stream;
-                camPrev.addEventListener("loadedmetadata", () => {
-                  camPrev.play();
-                });
-              })
-              .catch((err) => {
-                console.log(err.message);
-                alert(err.message);
-              });
+            // mediaDevices
+            //   .getUserMedia(constraints)
+            //   .then((stream) => {
+            //     camPrev.srcObject = stream;
+            //     camPrev.addEventListener("loadedmetadata", () => {
+            //       camPrev.play();
+            //     });
+            //   })
+            //   .catch((err) => {
+            //     console.log(err.message);
+            //     alert(err.message);
+            //   });
             document.querySelector(".overlay").classList.remove("hidden");
             document.querySelector(".overlay").classList.add("show");
             document
               .querySelector(".camera_canvas_block")
               .classList.remove("hidden");
             window.scrollTo({ top: 0, behavior: "smooth" });
-            startCamera();
+            // startCamera();
           });
 
         document
